@@ -1,0 +1,35 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/shape_bg_manual_inventory"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_12"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="@dimen/dp_50">
+
+
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:textColor="@color/color_9A9EA7"
+            android:textSize="@dimen/dp_14"
+            android:gravity="center"
+            android:background="@drawable/shape_bg_number"
+            android:text="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dp_14"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:textColor="@color/isp_write"
+            android:id="@+id/tv_manual_content"
+            android:text="20190123ZXX【张小小】-【0/180】"/>
+    </LinearLayout>
+
+
+
+

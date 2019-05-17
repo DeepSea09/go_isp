@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">go_isp</string>
+    <string-array name="men_s">
+        <item>S0</item>
+        <item>S1</item>
+        <item>S2</item>
+        <item>Auto</item>
+    </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dp_110"
+    android:background="@drawable/bg_room"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_16"
+        android:visibility="gone"
+        android:id="@+id/tv_loading_content"
+        android:textColor="@color/isp_write" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_16"
+        android:id="@+id/tv_loadingmsg"
+        android:textColor="@color/isp_write"
+        android:text="等待您扫描【房间标识】"/>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/avi"
+        style="@style/SpinKitView.ThreeBounce"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_25"
+        app:SpinKit_Color="@color/isp_write" />
+    </LinearLayout>
+
+</LinearLayout>

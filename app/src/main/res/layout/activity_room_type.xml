@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg_gray">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="办公室001-【20】"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_35"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_below="@id/tv_title"
+        android:id="@+id/refreshLayout"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_80"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlEnablePreviewInEditMode="false">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:gravity="center|bottom"
+        app:srlAccentColor="@color/isp_write"
+        app:srlEnableLastTime="false"
+        app:srlFinishDuration="@integer/refresh_delay_time"
+        app:srlTextSizeTitle="12dp"/>
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_below="@id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ry_room_type"
+
+        >
+
+    </android.support.v7.widget.RecyclerView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <TextView
+
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_btn"
+        android:layout_height="@dimen/dp_50"
+        android:layout_weight="1"
+        android:id="@+id/tv_submit"
+        android:gravity="center"
+        android:text="提交当前扫描结果"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:textColor="@color/color_FFFFFF"/>
+
+</RelativeLayout>
