@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_gray"
+    tools:context=".ui.activity.MainActivity">
+
+    <EditText
+        android:id="@+id/et_dizhi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="请输入地址"
+        android:textColor="#000"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+
+        />
+
+    <Spinner
+        android:id="@+id/spiner_select"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:entries="@array/exceptions"
+        android:spinnerMode="dialog" />
+
+    <EditText
+        android:id="@+id/et_anjian"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="请点击按键"
+        android:textColor="#000"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+
+        />
+    <TextView
+        android:id="@+id/tv_baocun"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="保存"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_55"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+
+</LinearLayout>

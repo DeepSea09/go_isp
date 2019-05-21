@@ -121,7 +121,69 @@ object Http : BaseHttp() {
 
         }
 
-    }
 
+
+
+        /**
+         * 房间模糊查询
+         */
+        fun roomLike(scanner_code: String, keywords: String, callback: HttpCallback<List<RoomLikebean>>) {
+            Log.e("111111111111111111","--------")
+            post_params("api/roomLike",
+                    mapOf("scanner_code" to scanner_code,
+                            "keywords" to keywords), callback = callback)
+
+
+        }
+        /**
+         * 房间绑定RFID
+         */
+        fun roomRfid(scanner_code: String, rfid : String, room_code : String ,callback: HttpCallback<RoomLikebean>) {
+
+            post_params("api/roomRfid",
+                    mapOf("scanner_code" to scanner_code,
+                            "rfid" to rfid,
+                            "room_code" to room_code), callback = callback)
+
+
+        }
+        /**
+         * 查询房间内资产目录信息
+         */
+        fun getRoomAssetsCategory(scanner_code: String, room_code : String ,callback: HttpCallback<List<AssetsCategoryBean>>) {
+
+            post_params("api/getRoomAssetsCategory",
+                    mapOf("scanner_code" to scanner_code,
+                            "room_code" to room_code), callback = callback)
+
+        }
+
+
+        /**
+         * 获取房间内某一分类下的资产信息
+         */
+        fun getCategoryRoomAssets(scanner_code: String, room_code : String ,category_code :String ,callback: HttpCallback<List<CategoryRoomAssetsBean>>) {
+
+            post_params("api/getCategoryRoomAssets",
+                    mapOf("scanner_code" to scanner_code,
+                            "category_code" to category_code,
+                            "room_code" to room_code), callback = callback)
+
+        }
+        /**
+         * 资产绑定RFID
+         */
+        fun getAssetsRfid(scanner_code :String,rfid :String,assets_code : String ,callback: HttpCallback<CategoryRoomAssetsBean>) {
+
+            post_params("api/assetsRfid",
+                    mapOf("scanner_code" to scanner_code,
+                            "rfid" to rfid,
+                            "assets_code" to assets_code), callback = callback)
+
+        }
+
+
+
+    }
 
 }

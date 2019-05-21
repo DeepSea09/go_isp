@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exceptions">
+        <item>0.3米以下</item>
+        <item>1米以下</item>
+        <item>3米以下</item>
+        <item>5米以下</item>
+        <item>5米以上</item>
+    </string-array>
+</resources>

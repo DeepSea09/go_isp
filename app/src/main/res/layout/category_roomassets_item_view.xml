@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_FF9900"
+        android:id="@+id/category_assets_number"
+        android:text="1"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:lines="1"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_FF9900"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:id="@+id/category_assets_code"
+        android:text="TY204059875930930"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_FF9900"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:id="@+id/category_assets_name"
+        android:lines="1"
+        android:text="AAAAAAAAAAAA"/>
+    <TextView
+        android:layout_weight="0.7"
+        android:layout_width="0dp"
+        android:gravity="center|right"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_FF9900"
+        android:id="@+id/category_assets_num"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:text="【10】"/>
+
+
+
+</LinearLayout>

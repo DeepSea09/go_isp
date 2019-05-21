@@ -4,13 +4,22 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.wangbin.go_isp.R;
+import com.wangbin.go_isp.adapter.RfidListAdapter;
+import com.wangbin.go_isp.utils.IOnActionListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,15 +34,15 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
     private IOnActionListener mActionListener;
     private boolean mCancelable = false;
     private boolean mOutside = false;
-
-
+    private List<String> rfid_list = new ArrayList<>();
 
 
     private int mLayoutID = R.layout.dialog_prompt_text;
 
     public PromptTextDialog(Context context, String aConfirmText) {
-        this(context, aConfirmText, null);
+        this(context, aConfirmText, null, false);
     }
+
 
     public PromptTextDialog(Context context, String aConfirmText, String aCancelText) {
         this(context, aConfirmText, aCancelText, false);
@@ -43,8 +52,13 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
         this(context, aConfirmText, null, aCancelable);
     }
 
+
+    public PromptTextDialog(Context context, String aConfirmText, List<String> rfid_list) {
+        this(context, aConfirmText, null, rfid_list, false, false);// aOutside默认与aCancelable保持一致
+    }
+
     public PromptTextDialog(Context context, String aConfirmText, String aCancelText, boolean aCancelable) {
-        this(context, aConfirmText, aCancelText, aCancelable, aCancelable);// aOutside默认与aCancelable保持一致
+        this(context, aConfirmText, aCancelText, null, aCancelable, aCancelable);// aOutside默认与aCancelable保持一致
     }
 
     /**
@@ -53,11 +67,12 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
      * @param aCancelable  主要针对返回键是否可点击，true：系统返回键可关闭dialog。 false：系统返回键不会关闭dialog。
      * @param aOutside     是否点击边缘位置消失， true: 点击边缘位置消失 ， false: 点击边缘位置不消失
      */
-    public PromptTextDialog(Context context, String aConfirmText, String aCancelText, boolean aCancelable, boolean aOutside) {
+    public PromptTextDialog(Context context, String aConfirmText, String aCancelText, List<String> rfid_list, boolean aCancelable, boolean aOutside) {
         super(context, R.style.generalThirdDialog);
         mConfirm = aConfirmText;
         mCancel = aCancelText;
         mCancelable = aCancelable;
+        this.rfid_list = rfid_list;
         mOutside = aOutside;
         setCanceledOnTouchOutside(mOutside);
     }
@@ -87,8 +102,28 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
         TextView lConfirmView = findViewById(R.id.dialog_prompt_text_confirm);
         if (mConfirm != null) lConfirmView.setText(mConfirm);// mConfirm可以有默认文字
         lConfirmView.setOnClickListener(this);
-
         View lCancelView = findViewById(R.id.dialog_prompt_text_cancel);
+
+        boolean lShowlRecycleView = rfid_list != null;
+        if (lShowlRecycleView) {
+            LinearLayout lay_rfid = findViewById(R.id.lay_rfid);
+            RecyclerView lRecycleView = findViewById(R.id.rfid_list);
+            if (rfid_list.size() > 1) {
+                lay_rfid.setVisibility(View.GONE);
+                lCancelView.setVisibility(View.VISIBLE );
+                lRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+                BaseQuickAdapter roomAdapter = new RfidListAdapter(R.layout.rfid_list__item_view, rfid_list);
+                lRecycleView.setAdapter(roomAdapter);
+            } else {
+                lay_rfid.setVisibility(View.VISIBLE);
+                lCancelView.setVisibility(View.GONE );
+                TextView textView = findViewById(R.id.tv_rfid);
+                TextView tv_rfid_address = findViewById(R.id.tv_rfid_address);
+                textView.setText(rfid_list.get(0));
+                tv_rfid_address.setText(mContent.substring(mContent.indexOf("】")+1,mContent.length()));
+            }
+        }
+
         if (lCancelView instanceof TextView) {
             boolean lShowCancelView = !TextUtils.isEmpty(mCancel);
             lCancelView.setVisibility(lShowCancelView ? View.VISIBLE : View.GONE);
@@ -96,8 +131,9 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
                 ((TextView) lCancelView).setText(mCancel);
                 lCancelView.setOnClickListener(this);
             }
-           // lConfirmView.setBackgroundResource(lShowCancelView ? R.drawable.bg_fillet_blue_gradient_bottom_right : R.drawable.bg_fillet_blue_gradient_bottom);
+            // lConfirmView.setBackgroundResource(lShowCancelView ? R.drawable.bg_fillet_blue_gradient_bottom_right : R.drawable.bg_fillet_blue_gradient_bottom);
         }
+
 
         if (mOutside) {
             View lParentView = findViewById(R.id.dialog_prompt_parent_ll);
@@ -107,12 +143,13 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
         setCancelable(mCancelable);
         setOnDismissListener(this);
 
-       setFullFillDialog(this);
+        setFullFillDialog(this);
     }
+
     /**
      * 设置全屏填充dialog
      */
-    public  void setFullFillDialog(Dialog aDialog) {
+    public void setFullFillDialog(Dialog aDialog) {
         Window lWindow = aDialog.getWindow();
         if (lWindow != null) {
             WindowManager.LayoutParams lParams = lWindow.getAttributes();
@@ -152,6 +189,7 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
             ((TextView) lContentTV).setText(mContent == null ? "" : mContent);
         else return;
     }
+
 
     public void setOnActionListener(IOnActionListener aActionListener) {
         mActionListener = aActionListener;

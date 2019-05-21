@@ -2,6 +2,7 @@ package com.wangbin.go_isp.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -222,23 +223,41 @@ public class SelectRoomActivity extends BaseActivity implements SelectRoomContra
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.e(TAG, "onKeyDown:-------" + keyCode);
-        switch (keyCode) {
-            case 521:
-            case 522:
-            case 523:
-            case 520:
-                Log.e(TAG, "onKeyDown: " + "1111");
-                if (openScanningResult == 0) {
+        SharedPreferences userSettings = getSharedPreferences("setting", 0);
+        String strkeycode = userSettings.getString("keycode","520;");
+        String[] strkeycodes =  strkeycode.split(";");
+        boolean cando = false;
+        for (int i = 0;i<strkeycodes.length;i++){
+            if(strkeycodes[i]==keyCode+""){
+                cando=true;
+            }
+        }
+        if(cando){
+            if (openScanningResult == 0) {
                     startScanning();
                     Log.e(TAG, "onKeyDown: " + "22222");
                 } else {
                     Toast.makeText(SelectRoomActivity.this, "扫描设备未开启，请稍后", Toast.LENGTH_SHORT).show();
                 }
                 return true;
-
-
         }
+//        Log.e(TAG, "onKeyDown:-------" + keyCode);
+//        switch (keyCode) {
+//            case 521:
+//            case 522:
+//            case 523:
+//            case 520:
+//                Log.e(TAG, "onKeyDown: " + "1111");
+//                if (openScanningResult == 0) {
+//                    startScanning();
+//                    Log.e(TAG, "onKeyDown: " + "22222");
+//                } else {
+//                    Toast.makeText(SelectRoomActivity.this, "扫描设备未开启，请稍后", Toast.LENGTH_SHORT).show();
+//                }
+//                return true;
+//
+//
+//        }
         return super.onKeyDown(keyCode, event);
     }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_gray"
+    >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="物联绑定\nRFID@系统数据库"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+
+    <TextView
+        android:layout_below="@id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_35"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:gravity="center"
+        android:id="@+id/tv_assets_title"
+        android:textColor="@color/isp_write"
+        android:background="@drawable/bg_btn_confirm"
+        android:text="办公室001 | 入侵检测设备"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/tv_assets_title"
+        android:id="@+id/assests_category_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_80"
+        android:layout_marginLeft="@dimen/dp_16">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+    <TextView
+
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_btn"
+        android:layout_height="@dimen/dp_45"
+        android:layout_weight="1"
+        android:id="@+id/tv_cancle"
+        android:gravity="center"
+        android:text="返回"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:textColor="@color/color_FFFFFF"/>
+
+</RelativeLayout>

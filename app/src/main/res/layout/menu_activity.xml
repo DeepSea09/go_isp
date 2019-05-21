@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_gray"
+    tools:context=".ui.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_bdbq"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="绑定标签"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+    <TextView
+        android:id="@+id/tv_pdzc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="盘点资产"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+    <TextView
+        android:id="@+id/tv_sz"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="设置"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+
+</LinearLayout>

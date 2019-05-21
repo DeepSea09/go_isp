@@ -1,4 +1,4 @@
-package com.wangbin.go_isp.base;
+package com.wangbin.go_isp.framework.base;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,22 +10,21 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 
-import com.wangbin.go_isp.Constants;
+import com.wangbin.go_isp.bean.RoomLikebean;
 import com.wangbin.go_isp.net.NetworkViewCallback;
-import com.wangbin.go_isp.ui.activity.CheckMainActivity;
+import com.wangbin.go_isp.Constants;
+
 import com.wangbin.go_isp.R;
+import com.wangbin.go_isp.base.App;
+import com.wangbin.go_isp.ui.activity.RoomSearchActivity;
 import com.wangbin.go_isp.utils.AppUtils;
 import com.wangbin.go_isp.utils.CustomDialog;
-
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -49,9 +48,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private Context mContext;
     private Unbinder bind;
     private Activity mCurrentActivity;
-    private String loadingMsg ;
+    private int type ;
     private int layoutId;
-    private CustomDialog dialog;;
+    private CustomDialog dialog;
+    private RoomLikebean roomLikebean;
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -85,7 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         if (null != dialog && dialog.isShowing()){
             dialog.dismiss();
         }
-     showLoading("",R.layout.defaultcustomdialoglayout);
+     showLoading(-1,null,R.layout.defaultcustomdialoglayout);
     }
 
     @Override
@@ -100,36 +100,37 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    /**
-     * EventBus是否已注册
-     */
-    public boolean isEventBusRegisted(Object subscribe) {
-        return EventBus.getDefault().isRegistered(subscribe);
-    }
-
-    /**
-     * 注册EventBus
-     */
-    public void registerEventBus(Object subscribe) {
-        if (!isEventBusRegisted(subscribe)) {
-            EventBus.getDefault().register(subscribe);
-        }
-    }
-
-    /**
-     * 反注册EventBus
-     */
-    public void unregisterEventBus(Object subscribe) {
-        if (isEventBusRegisted(subscribe)) {
-            EventBus.getDefault().unregister(subscribe);
-        }
-    }
+//    /**
+//     * EventBus是否已注册
+//     */
+//    public boolean isEventBusRegisted(Object subscribe) {
+//        return EventBus.getDefault().isRegistered(subscribe);
+//    }
+//
+//    /**
+//     * 注册EventBus
+//     */
+//    public void registerEventBus(Object subscribe) {
+//        if (!isEventBusRegisted(subscribe)) {
+//            EventBus.getDefault().register(subscribe);
+//        }
+//    }
+//
+//    /**
+//     * 反注册EventBus
+//     */
+//    public void unregisterEventBus(Object subscribe) {
+//        if (isEventBusRegisted(subscribe)) {
+//            EventBus.getDefault().unregister(subscribe);
+//        }
+//    }
 
     //封装的弹出加载条的方法
-    protected void showLoading(String loadingMsg,int layoutId) {
+    protected void showLoading(int type, RoomLikebean roomLikebean,int layoutId) {
         if (!isFinishing()) {
-            this.loadingMsg = loadingMsg;
+            this.type = type;
             this.layoutId  =layoutId;
+            this.roomLikebean =roomLikebean;
             showDialog(Constants.CustomProgressDialog);
         }
     }
@@ -143,7 +144,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case Constants.CustomProgressDialog:
-                dialog = new CustomDialog(this,loadingMsg,layoutId);
+                dialog = new CustomDialog(this,type,roomLikebean,layoutId);
                 break;
 
             default:
@@ -283,15 +284,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     @Override
     public void onBackPressed() {
-        if (mCurrentActivity instanceof CheckMainActivity) {
-            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
-                mPreTime = System.currentTimeMillis();
-                return;
-            } else {
-                System.exit(0);
-            }
-        }
+//        if (mCurrentActivity instanceof RoomSearchActivity) {
+//            if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
+//                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
+//                mPreTime = System.currentTimeMillis();
+//                return;
+//            } else {
+//                System.exit(0);
+//            }
+//        }
 
         super.onBackPressed();
     }

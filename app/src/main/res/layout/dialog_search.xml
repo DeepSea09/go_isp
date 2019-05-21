@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/id_pop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/isp_write"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_666666"
+            android:gravity="center"
+            android:text="工作时间：工作日 9:00-24:00 节假日 9:00-18:00"
+            android:textColor="@color/isp_black"
+            android:textSize="13dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/color_12C2C2"
+                android:text="电话客服"/>
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_12C2C2"
+                android:text="400-678-6922"/>
+        </LinearLayout>
+
+        <View
+           android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/color_B7EB8F"/>
+        <LinearLayout
+            android:id="@+id/service_tel_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/color_12C2C2"
+                android:text="电话客服"/>
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_12C2C2"
+                android:text="400-678-6922"/>
+        </LinearLayout>
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/color_B7EB8F"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/color_12C2C2"
+                android:text="电话客服"/>
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_12C2C2"
+                android:text="400-678-6922"/>
+        </LinearLayout>
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/color_B7EB8F"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/color_12C2C2"
+                android:text="电话客服"/>
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_12C2C2"
+                android:text="400-678-6922"/>
+        </LinearLayout>
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/color_B7EB8F"/>
+        <LinearLayout
+            android:id="@+id/service_online_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@color/color_12C2C2"
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线客服"/>
+            <TextView
+                android:layout_marginLeft="31dp"
+                android:textSize="15dp"
+                android:textColor="@color/color_B7EB8F"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="一对一专属服务"/>
+        </LinearLayout>
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/color_B7EB8F"/>
+        <LinearLayout
+            android:id="@+id/service_wechat_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:textSize="15dp"
+                android:textColor="@color/isp_black"
+                android:layout_marginLeft="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信客服"/>
+            <TextView
+                android:id="@+id/tvWechat"
+                android:textSize="15dp"
+                android:textColor="@color/isp_black"
+                android:layout_marginLeft="31dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+            <TextView
+                android:textSize="13dp"
+                android:textColor="@color/isp_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  (点击即复制)"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_gray"
+    tools:context=".ui.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:text="物联绑定"
+        android:textColor="@color/color_FFFFFF"
+        android:background="@drawable/shape_bg_title"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+        android:gravity="center"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_12"
+        android:background="@drawable/bg_search"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首先，请选择房间 ："
+            android:textSize="@dimen/dp_16"
+            android:textColor="@color/isp_write"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3.5"
+                android:layout_height="wrap_content"
+                android:text="联想模糊查询"
+                android:textSize="@dimen/dp_12"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_search_input"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_height="@dimen/dp_30"
+                android:background="@drawable/bg_button"
+                android:text="查询"
+                android:id="@+id/btn_search"
+                android:gravity="center"
+                android:textSize="@dimen/dp_14"
+                android:textColor="@color/isp_write"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_prompt_parent_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/dp_20"
+    android:layout_marginRight="@dimen/dp_20"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/dialog_prompt_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:textSize="@dimen/dp_18"
+        android:text="【0】 办公室001"
+        android:gravity="center"
+        android:textColor="@color/color_FF9900"
+        android:background="@drawable/bg_btn_confirm"
+        />
+
+
+    <LinearLayout
+
+        android:layout_below="@id/dialog_prompt_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_room"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择RFID的对象:"
+            android:textSize="@dimen/dp_18"
+            android:textColor="@color/isp_write"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="【房间】物联绑定"
+            android:layout_margin="@dimen/dp_18"
+            android:gravity="center"
+            android:id="@+id/dialog_prompt_text_confirm"
+            android:textSize="@dimen/dp_16"
+            android:textColor="@color/isp_write"
+            android:background="@drawable/bg_btn_cancel"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="【房间】物联绑定"
+            android:gravity="center"
+            android:id="@+id/dialog_prompt_text_cancel"
+            android:textSize="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_18"
+            android:layout_marginRight="@dimen/dp_18"
+            android:layout_marginBottom="@dimen/dp_18"
+            android:textColor="@color/isp_write"
+            android:background="@drawable/bg_btn_cancel"/>
+        
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

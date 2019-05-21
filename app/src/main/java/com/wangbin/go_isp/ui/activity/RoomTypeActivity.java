@@ -3,6 +3,7 @@ package com.wangbin.go_isp.ui.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -168,18 +169,36 @@ public class RoomTypeActivity extends PullRefreshActivity implements RoomTypeCon
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-
-            case 520:
-                if (openScanningResult == 0) {
+        SharedPreferences userSettings = getSharedPreferences("setting", 0);
+        String strkeycode = userSettings.getString("keycode","520;");
+        String[] strkeycodes =  strkeycode.split(";");
+        boolean cando = false;
+        for (int i = 0;i<strkeycodes.length;i++){
+            if(strkeycodes[i]==keyCode+""){
+                cando=true;
+            }
+        }
+        if(cando){
+            if (openScanningResult == 0) {
                     startScanning();
                     Log.e(TAG, "onKeyDown: " + "22222");
                 } else {
                     Toast.makeText(RoomTypeActivity.this, "扫描设备未开启，请稍后", Toast.LENGTH_SHORT).show();
                 }
                 return true;
-
         }
+//        switch (keyCode) {
+//
+//            case 520:
+//                if (openScanningResult == 0) {
+//                    startScanning();
+//                    Log.e(TAG, "onKeyDown: " + "22222");
+//                } else {
+//                    Toast.makeText(RoomTypeActivity.this, "扫描设备未开启，请稍后", Toast.LENGTH_SHORT).show();
+//                }
+//                return true;
+//
+//        }
         return super.onKeyDown(keyCode, event);
     }
     /**

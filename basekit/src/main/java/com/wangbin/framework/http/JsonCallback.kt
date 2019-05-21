@@ -1,5 +1,6 @@
 package com.irongbei.http
 
+import android.content.SharedPreferences
 import android.text.TextUtils
 import android.util.Log
 import com.alibaba.fastjson.JSON.parseObject
@@ -40,6 +41,7 @@ internal abstract class JsonCallback<T>(private val httpCallback: HttpCallback<T
      */
     override fun onError(response: Response<T>?) {
         val code: Int = response?.code() ?: 0
+        Log.e("codecodecodecod",""+code);
         val body = response?.rawResponse?.body()?.string()
         when {
             response?.exception is BusinessError -> httpCallback?.onBusinessError(response.exception as BusinessError)
@@ -67,9 +69,9 @@ internal abstract class JsonCallback<T>(private val httpCallback: HttpCallback<T
     override fun convertResponse(response: okhttp3.Response): T? {
         val body = response.body()?.string()
         val httpUrl = response.request().url().toString()
-
         val checkServerResult = checkServerResult(body)
-        if (httpUrl.equals( "http://192.168.3.251:8001/"+"inventoryapi/receiveRoomCode")){
+        Log.e("httpUrlhttpUrlhttpUrl",""+httpUrl);
+        if (httpUrl.indexOf("inventoryapi/receiveRoomCode")>=0){
             //val parseObject = parseObject<ReceiveRoomCodeData>(checkServerResult.data, ReceiveRoomCodeData::class.java)
             if (response.code() == 200){
                if (TextUtils.isEmpty(checkServerResult.data)){
