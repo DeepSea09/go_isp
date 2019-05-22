@@ -65,7 +65,7 @@ public class CustomDialog extends Dialog {
         setContentView(layoutId);
         this.msg = msg;
         Log.e("showLoadingDialog: ", "222222" + layoutId);
-        if (layoutId == R.layout.customdialoglayout) {
+        if (layoutId == R.layout.customdialoglayouttwo) {
             TextView tv_loadingmsg = findViewById(R.id.tv_loadingmsg);
             TextView tv_loading_content = findViewById(R.id.tv_loading_content);
             TextView dialog_prompt_content_tv = findViewById(R.id.dialog_prompt_content_tv);
