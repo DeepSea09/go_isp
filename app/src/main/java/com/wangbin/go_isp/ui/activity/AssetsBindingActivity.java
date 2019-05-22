@@ -154,7 +154,7 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
         if (type == 1) {
             presenter.getRoomAssetsCategory(getMacAddress(), roomLikebean.getRoom_code());
         } else {
-            showLoading(type, roomLikebean, R.layout.customdialoglayout);
+            showLoading(type, roomLikebean, R.layout.customdialoglayouttwo);
         }
 
     }
