@@ -38,6 +38,8 @@ public class SettingActivity extends AppCompatActivity {
 
     @BindView(R.id.et_dizhi)
     EditText et_dizhi;
+    @BindView(R.id.et_yewudizhi)
+    EditText et_yewudizhi;
 
     @BindView(R.id.tv_baocun)
     TextView tv_baocun;
@@ -49,9 +51,11 @@ public class SettingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         SharedPreferences userSettings = getSharedPreferences("setting", 0);
         String dizhi = userSettings.getString("dizhi","http://47.94.107.122:8001/");
+        String yewudizhi = userSettings.getString("yewudizhi","http://47.94.107.122:8000/");
         String keycode = userSettings.getString("keycode","520;");
         keyText = keycode;
         et_dizhi.setText(dizhi);
+        et_yewudizhi.setText(yewudizhi);
         et_anjian.setText(keyText);
         et_anjian.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -68,9 +72,11 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences userSettings = getSharedPreferences("setting", 0);
                 SharedPreferences.Editor editor = userSettings.edit();
                 editor.putString("keycode",keyText);
-
+                editor.putString("yewudizhi",et_yewudizhi.getText().toString());
                 editor.putString("dizhi",et_dizhi.getText().toString());
                 Constants.NET_URL = et_dizhi.getText().toString();
+                Constants.NET_URLAPI = et_dizhi.getText().toString();
+
                 editor.commit();
                 ToastUtils.showShort("保存成功");
                 break;

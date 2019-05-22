@@ -18,5 +18,6 @@ public class Constants {
 
     //public static final String NET_URL = "http://192.168.3.251:8001/";
     public static  String NET_URL = "http://47.94.107.122:8001/";
+    public static  String NET_URLAPI = "http://47.94.107.122:8000/";
 }
 //http://47.94.107.122:8001/inventoryapi/receiveRoomCode

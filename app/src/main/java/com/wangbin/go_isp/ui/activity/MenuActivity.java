@@ -50,7 +50,9 @@ public class MenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         SharedPreferences userSettings = getSharedPreferences("setting", 0);
         String dizhi = userSettings.getString("dizhi","http://47.94.107.122:8001/");
+        String yewudizhi = userSettings.getString("yewudizhi","http://47.94.107.122:8000/");
         Constants.NET_URL = dizhi;
+        Constants.NET_URLAPI = yewudizhi;
     }
 
 

@@ -6,12 +6,25 @@
     android:orientation="vertical"
     android:background="@mipmap/bg_gray"
     tools:context=".ui.activity.MainActivity">
+    <EditText
+        android:id="@+id/et_yewudizhi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="请输入业务配置地址"
+        android:textColor="#000"
+        android:background="#fff"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_16"
+
+        />
 
     <EditText
         android:id="@+id/et_dizhi"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入地址"
+        android:hint="请输入业务使用地址"
         android:textColor="#000"
         android:background="#fff"
         android:layout_marginLeft="@dimen/dp_16"

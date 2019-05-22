@@ -22,7 +22,7 @@ object Http : BaseHttp() {
          * 获取盘点编号接口
          */
         fun getInventoryNum(scanner_code: String, callback: HttpCallback<ScannerCodeBean>) {
-            post_params("inventoryapi/getInventoryNum",
+            post_params(Constants.NET_URL+"inventoryapi/getInventoryNum",
                     mapOf("scanner_code" to scanner_code), callback = callback)
 
 
@@ -34,7 +34,7 @@ object Http : BaseHttp() {
 
         fun getRoomInfoByInvCode(scanner_code: String,inventory_code: String, callback: HttpCallback<List<InventoryCodeBean>>) {
 
-            post_params("inventoryapi/getRoomInfoByInvCode",
+            post_params(Constants.NET_URL+"inventoryapi/getRoomInfoByInvCode",
                     mapOf("inventory_code" to inventory_code,"scanner_code" to  scanner_code), callback = callback)
 
         }
@@ -54,7 +54,7 @@ object Http : BaseHttp() {
             Log.e("ccccccccccccc",scanner_code);
             Log.e("iiiiiiiiiiii",inventory_code);
             Log.e("------",Constants.NET_URL+"inventoryapi/receiveRoomCode");
-            post_params("inventoryapi/receiveRoomCode",
+            post_params(Constants.NET_URL+"inventoryapi/receiveRoomCode",
                     mapOf("scanner_code" to scanner_code,
                             "inventory_code" to inventory_code,
                             "code_gather" to JSON.toJSONString(code_gather)),
@@ -68,7 +68,7 @@ object Http : BaseHttp() {
          */
         fun getAssetsCodeListByRfid(scanner_code: String, inventory_code: String, rfid_gather: List<String>, callback: HttpCallback<List<ReceiveRoomCodeData.AssetsInfo>>) {
 
-            post_params("inventoryapi/getAssetsCodeListByRfid",
+            post_params(Constants.NET_URL+"inventoryapi/getAssetsCodeListByRfid",
                     mapOf("scanner_code" to scanner_code,
                             "inventory_code" to inventory_code,
                             "rfid_gather" to JSON.toJSONString(rfid_gather)),
@@ -91,7 +91,7 @@ object Http : BaseHttp() {
             Log.e("scanner_code----",scanner_code)
             Log.e("inventory_code----",inventory_code)
             Log.e("rfid_gather----",JSON.toJSONString(rfid_gather))
-            post_params("inventoryapi/receiveAppContrastRes",
+            post_params(Constants.NET_URL+"inventoryapi/receiveAppContrastRes",
                     mapOf("room_rfid" to room_rfid,
                             "scanner_code" to scanner_code,
                             "inventory_code" to inventory_code,
@@ -102,7 +102,7 @@ object Http : BaseHttp() {
 
         fun getAssetsNumByEndInv( scanner_code : String,inventory_code : String,callback: HttpCallback<AssetsNumByEndInvBean>){
 
-            post_params("inventoryapi/getAssetsNumByEndInv",
+            post_params(Constants.NET_URL+"inventoryapi/getAssetsNumByEndInv",
                     mapOf("scanner_code" to scanner_code,
                             "inventory_code" to inventory_code),
                     callback = callback)
@@ -115,7 +115,7 @@ object Http : BaseHttp() {
          */
         fun getInventoryEnd(scanner_code: String,inventory_code  : String,callback: HttpCallback<ScannerCodeBean>){
 
-            post_params("inventoryapi/setInventoryEnd",
+            post_params(Constants.NET_URL+"inventoryapi/setInventoryEnd",
                     mapOf("inventory_code" to inventory_code,"scanner_code" to scanner_code),
                     callback = callback)
 
@@ -129,7 +129,9 @@ object Http : BaseHttp() {
          */
         fun roomLike(scanner_code: String, keywords: String, callback: HttpCallback<List<RoomLikebean>>) {
             Log.e("111111111111111111","--------")
-            post_params("api/roomLike",
+            Log.e("1111111scanner_code","--------"+scanner_code)
+            Log.e("111111111keywords","--------"+keywords)
+            post_params(Constants.NET_URLAPI+"api/roomLike",
                     mapOf("scanner_code" to scanner_code,
                             "keywords" to keywords), callback = callback)
 
@@ -140,7 +142,7 @@ object Http : BaseHttp() {
          */
         fun roomRfid(scanner_code: String, rfid : String, room_code : String ,callback: HttpCallback<RoomLikebean>) {
 
-            post_params("api/roomRfid",
+            post_params(Constants.NET_URLAPI+"api/roomRfid",
                     mapOf("scanner_code" to scanner_code,
                             "rfid" to rfid,
                             "room_code" to room_code), callback = callback)
@@ -152,7 +154,7 @@ object Http : BaseHttp() {
          */
         fun getRoomAssetsCategory(scanner_code: String, room_code : String ,callback: HttpCallback<List<AssetsCategoryBean>>) {
 
-            post_params("api/getRoomAssetsCategory",
+            post_params(Constants.NET_URLAPI+"api/getRoomAssetsCategory",
                     mapOf("scanner_code" to scanner_code,
                             "room_code" to room_code), callback = callback)
 
@@ -164,7 +166,7 @@ object Http : BaseHttp() {
          */
         fun getCategoryRoomAssets(scanner_code: String, room_code : String ,category_code :String ,callback: HttpCallback<List<CategoryRoomAssetsBean>>) {
 
-            post_params("api/getCategoryRoomAssets",
+            post_params(Constants.NET_URLAPI+"api/getCategoryRoomAssets",
                     mapOf("scanner_code" to scanner_code,
                             "category_code" to category_code,
                             "room_code" to room_code), callback = callback)
@@ -175,7 +177,7 @@ object Http : BaseHttp() {
          */
         fun getAssetsRfid(scanner_code :String,rfid :String,assets_code : String ,callback: HttpCallback<CategoryRoomAssetsBean>) {
 
-            post_params("api/assetsRfid",
+            post_params(Constants.NET_URLAPI+"api/assetsRfid",
                     mapOf("scanner_code" to scanner_code,
                             "rfid" to rfid,
                             "assets_code" to assets_code), callback = callback)
