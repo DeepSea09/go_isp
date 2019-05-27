@@ -18,8 +18,9 @@ import com.wangbin.go_isp.bean.ScannerCodeBean
 class ManualInventoryAdapter(layoutResId: Int, data: List<ScannerCodeBean>?) : BaseQuickAdapter<ScannerCodeBean, BaseViewHolder>(layoutResId, data) {
 
     override fun convert(helper: BaseViewHolder, item: ScannerCodeBean) {
+        var i = item.assets_total!!.toInt()- item.scannered_assets_total!!.toInt();
         helper.setText(R.id.tv_number, item.inv_type)
-        helper.setText(R.id.tv_manual_content, "${item.inv_code}【${item.op_username}】【${item.is_complete}/${item.assets_total}】")
+        helper.setText(R.id.tv_manual_content, "${item.inv_code}【${item.op_username}】【${item.scannered_assets_total}/${item.assets_total}】")
 
 
     }

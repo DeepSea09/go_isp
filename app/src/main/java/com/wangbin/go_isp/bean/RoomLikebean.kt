@@ -26,6 +26,7 @@ class RoomLikebean (
 
     var room_code: String? = null,
     var room_name: String? = null,
+    var assets_num: String? = null,
     var rfid_num : Int ? = 0
 ): Parcelable,IPickerViewData {
     override fun getPickerViewText(): String? {

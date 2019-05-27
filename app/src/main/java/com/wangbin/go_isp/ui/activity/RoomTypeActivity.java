@@ -174,7 +174,7 @@ public class RoomTypeActivity extends PullRefreshActivity implements RoomTypeCon
         String[] strkeycodes =  strkeycode.split(";");
         boolean cando = false;
         for (int i = 0;i<strkeycodes.length;i++){
-            if(strkeycodes[i]==keyCode+""){
+            if(strkeycodes[i].equals(keyCode+"")){
                 cando=true;
             }
         }

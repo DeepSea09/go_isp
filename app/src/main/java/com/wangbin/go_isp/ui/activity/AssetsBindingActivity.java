@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.UHF.scanlable.UfhData;
+import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.ToastUtils;
 import com.wangbin.go_isp.R;
 import com.wangbin.go_isp.bean.AssetsCategoryBean;
@@ -24,6 +25,7 @@ import com.wangbin.go_isp.ui.activity.contract.AssetsBindingContract;
 import com.wangbin.go_isp.ui.activity.persenter.AssetsBindingPensenter;
 import com.wangbin.go_isp.utils.AssetsRoomDialog;
 import com.wangbin.go_isp.utils.DefaultOnActionListener;
+import com.wangbin.go_isp.utils.NewAssetsRoomDialog;
 import com.wangbin.go_isp.utils.PromptTextDialog;
 
 import org.greenrobot.eventbus.EventBus;
@@ -74,7 +76,7 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
     private int openScanningResult = -1;
     private int type = -1;
     private String category_code;
-
+    private String  category_name;
     @Override
     public void showAssetsRfid(String message) {
         Toast.makeText(AssetsBindingActivity.this, TextUtils.isEmpty(message) ? "绑定成功" : message, Toast.LENGTH_SHORT).show();
@@ -143,7 +145,8 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_back:
-                CategoryRoomAssetsActivity.startCategoryRoomAssetsActivity(AssetsBindingActivity.this, category_code, roomLikebean);
+//                CategoryRoomAssetsActivity.startCategoryRoomAssetsActivity(AssetsBindingActivity.this, category_code, roomLikebean,category_name);
+                finish();
                 break;
             default:
                 break;
@@ -160,12 +163,13 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
     }
 
     private void showAssetsRoomDiaog(List<AssetsCategoryBean> list) {
-        AssetsRoomDialog dialog = new AssetsRoomDialog();
+        NewAssetsRoomDialog dialog = new NewAssetsRoomDialog();
         dialog.setDataList(list);
         dialog.setRoomName(roomLikebean.getRoom_name());
-        dialog.setAssetsRoomListener(category_code -> {
+        dialog.setAssetsRoomListener((category_code,category_name) -> {
             this.category_code = category_code;
-            CategoryRoomAssetsActivity.startCategoryRoomAssetsActivity(AssetsBindingActivity.this, category_code, roomLikebean);
+            this.category_name = category_name;
+            CategoryRoomAssetsActivity.startCategoryRoomAssetsActivity(AssetsBindingActivity.this, category_code, roomLikebean,category_name);
         });
 
         getSupportFragmentManager().beginTransaction().add(dialog, "AssetsRoomDialog").commitAllowingStateLoss();
@@ -227,7 +231,7 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
         String[] strkeycodes =  strkeycode.split(";");
         boolean cando = false;
         for (int i = 0;i<strkeycodes.length;i++){
-            if(strkeycodes[i]==keyCode+""){
+            if(strkeycodes[i].equals(keyCode+"")){
                 cando=true;
             }
         }
@@ -324,7 +328,7 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
      *                      type  0   房间绑定，1 资产绑定，2 房间内某一分类下的资产信息
      */
     private void setSummitDialog(int acanning_type) {
-        new PromptTextDialog(this, acanning_type == 0x112 ? "开始绑定" : "RFID不唯一,请重新扫描标签", rfid_list).changeLayout(R.layout.select_rfid_dialog).fastShow("【" + roomLikebean.getRoom_code() + "】" + roomLikebean.getRoom_name(), new DefaultOnActionListener() {
+        new PromptTextDialog(this, acanning_type == 0x112 ? "开始绑定" : "RFID不唯一,请重新扫描标签", rfid_list).changeLayout(R.layout.select_rfid_dialog).fastShow("【" + roomLikebean.getAssets_num()  + "】" + roomLikebean.getRoom_name(),getIntent().getStringExtra("assets_name"), new DefaultOnActionListener() {
             @Override
             public void onConfirm() {
                 switch (acanning_type) {
@@ -345,7 +349,7 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
                         break;
                 }
             }
-        });
+        },1);
     }
 
     @Override
@@ -394,6 +398,16 @@ public class AssetsBindingActivity extends BaseActivity implements AssetsBinding
         Intent intent = new Intent(context, AssetsBindingActivity.class);
         intent.putExtra("type", type);
         intent.putExtra("assets_code", assets_code);
+        intent.putExtra("roomLikebean", bean);
+        context.startActivity(intent);
+        context.finish();
+    }
+
+    public static void startAssetsBindingActivity(Activity context, String assets_code,String assets_name, int type, RoomLikebean bean) {
+        Intent intent = new Intent(context, AssetsBindingActivity.class);
+        intent.putExtra("type", type);
+        intent.putExtra("assets_code", assets_code);
+        intent.putExtra("assets_name", assets_name);
         intent.putExtra("roomLikebean", bean);
         context.startActivity(intent);
         context.finish();

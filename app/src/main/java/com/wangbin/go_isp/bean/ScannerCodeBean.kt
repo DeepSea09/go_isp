@@ -37,6 +37,7 @@ data class ScannerCodeBean(
     var is_complete: String? = null,
     var complete_date: String? = null,
     var create_date: String? = null,
-    var assets_total: String? = null
+    var assets_total: String? = null,
+    var scannered_assets_total: String? = null
 
 )

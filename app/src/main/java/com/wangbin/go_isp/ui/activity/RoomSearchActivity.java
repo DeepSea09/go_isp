@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.blankj.utilcode.util.ToastUtils;
@@ -91,8 +92,9 @@ public class RoomSearchActivity extends BaseActivity implements RoomSearchContra
     }
 
     private void summit(RoomLikebean roomLikebean) {
+        Log.e("summit: --------",JSONObject.toJSONString(roomLikebean));
 
-        new PromptTextDialog(this, "【房间】物联绑定", "【资产】物联绑定").changeLayout(R.layout.select_type_rfid_dialog).fastShow("【" + roomLikebean.getRoom_code() + "】" + roomLikebean.getRoom_name(), new DefaultOnActionListener() {
+        new PromptTextDialog(this, "【房间】物联绑定", "【资产】物联绑定").changeLayout(R.layout.select_type_rfid_dialog).fastShow("【" + roomLikebean.getAssets_num() + "】" + roomLikebean.getRoom_name(), new DefaultOnActionListener() {
             @Override
             public void onCancel() {
 

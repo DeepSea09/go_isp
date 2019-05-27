@@ -7,10 +7,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.wangbin.go_isp.R;
 import com.wangbin.go_isp.adapter.CategoryRoomAssetsAdapter;
@@ -71,6 +73,12 @@ public class CategoryRoomAssetsActivity extends BaseActivity implements Category
         assets_adapter = new CategoryRoomAssetsAdapter(R.layout.category_roomassets_item_view, categoryRoomAssetsBeanList);
         assestsCategoryList.setAdapter(assets_adapter);
         String category_code = getIntent().getStringExtra("category_code");
+        String category_name = getIntent().getStringExtra("category_name");
+        String[] category_names =  category_name.split("-");
+        if(category_names.length>0){
+            category_name = category_names[category_names.length-1];
+        }
+        tvAssetsTitle.setText(roomLikebean.getRoom_name()+"  |  "+category_name);
         presenter.getCategoryRoomAssets(getMacAddress(), roomLikebean.getRoom_code(), TextUtils.isEmpty(category_code) ? "" : category_code);
 
     }
@@ -78,8 +86,8 @@ public class CategoryRoomAssetsActivity extends BaseActivity implements Category
     @Override
     protected void intData() {
         assets_adapter.setOnItemClickListener((adapter, view1, position) -> {
-
-            AssetsBindingActivity.startAssetsBindingActivity(CategoryRoomAssetsActivity.this, categoryRoomAssetsBeanList.get(position).getAssets_code(), 2, roomLikebean);
+            Log.e("intData: aaaaaaa",JSONObject.toJSONString(categoryRoomAssetsBeanList.get(position)));
+            AssetsBindingActivity.startAssetsBindingActivity(CategoryRoomAssetsActivity.this, categoryRoomAssetsBeanList.get(position).getAssets_code(),categoryRoomAssetsBeanList.get(position).getAssets_name(), 2, roomLikebean);
 
         });
     }
@@ -134,9 +142,10 @@ public class CategoryRoomAssetsActivity extends BaseActivity implements Category
      * @param context
      * @param
      */
-    public static void startCategoryRoomAssetsActivity(Activity context, String category_code, RoomLikebean bean) {
+    public static void startCategoryRoomAssetsActivity(Activity context, String category_code, RoomLikebean bean, String category_name) {
         Intent intent = new Intent(context, CategoryRoomAssetsActivity.class);
         intent.putExtra("category_code", category_code);
+        intent.putExtra("category_name", category_name);
         intent.putExtra("roomLikebean", bean);
         context.startActivity(intent);
 

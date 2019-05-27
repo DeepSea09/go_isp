@@ -24,12 +24,12 @@
         <activity android:name=".ui.activity.MainActivity">
 
         </activity>
-        <!--<activity android:name=".ui.activity.CheckMainActivity">-->
+        <activity android:name=".ui.activity.CheckMainActivity">
 
-        <!--</activity>-->
-        <!--<activity android:name=".ui.activity.SelectRoomActivity">-->
+        </activity>
+        <activity android:name=".ui.activity.SelectRoomActivity">
 
-        <!--</activity>-->
+        </activity>
       <activity android:name=".ui.activity.ManualInventoryActivity">
 
       </activity>

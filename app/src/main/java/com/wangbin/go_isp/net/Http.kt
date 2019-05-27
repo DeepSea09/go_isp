@@ -132,7 +132,7 @@ object Http : BaseHttp() {
             Log.e("1111111scanner_code","--------"+scanner_code)
             Log.e("111111111keywords","--------"+keywords)
             post_params(Constants.NET_URLAPI+"api/roomLike",
-                    mapOf("scanner_code" to scanner_code,
+                    mapOf("scanner_code" to "cc:4b:73:4a:42:f8",
                             "keywords" to keywords), callback = callback)
 
 
@@ -165,7 +165,9 @@ object Http : BaseHttp() {
          * 获取房间内某一分类下的资产信息
          */
         fun getCategoryRoomAssets(scanner_code: String, room_code : String ,category_code :String ,callback: HttpCallback<List<CategoryRoomAssetsBean>>) {
-
+            Log.e("scanner_code",scanner_code)
+            Log.e("room_code",room_code)
+            Log.e("category_code",category_code)
             post_params(Constants.NET_URLAPI+"api/getCategoryRoomAssets",
                     mapOf("scanner_code" to scanner_code,
                             "category_code" to category_code,

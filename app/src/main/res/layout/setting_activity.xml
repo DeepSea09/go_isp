@@ -6,71 +6,152 @@
     android:orientation="vertical"
     android:background="@mipmap/bg_gray"
     tools:context=".ui.activity.MainActivity">
-    <EditText
-        android:id="@+id/et_yewudizhi"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="请输入业务配置地址"
-        android:textColor="#000"
-        android:background="#fff"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_40"
-        android:textSize="@dimen/dp_16"
+        android:layout_height="match_parent">
 
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_dizhi"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="请输入业务使用地址"
-        android:textColor="#000"
-        android:background="#fff"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_40"
-        android:textSize="@dimen/dp_16"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="资产服务地址"
+                android:textColor="#fff"
+                android:textSize="@dimen/dp_16"
 
-        />
+                />
 
-    <Spinner
-        android:id="@+id/spiner_select"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#fff"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_40"
-        android:entries="@array/exceptions"
-        android:spinnerMode="dialog" />
+            <EditText
+                android:id="@+id/et_yewudizhi"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="#fff"
+                android:hint="请输入资产服务地址"
+                android:textColor="#000"
+                android:textSize="@dimen/dp_16"
 
-    <EditText
-        android:id="@+id/et_anjian"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="请点击按键"
-        android:textColor="#000"
-        android:background="#fff"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_40"
-        android:textSize="@dimen/dp_16"
+                />
 
-        />
-    <TextView
-        android:id="@+id/tv_baocun"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        android:text="保存"
-        android:textColor="@color/color_FFFFFF"
-        android:background="@drawable/shape_bg_title"
-        android:layout_marginLeft="@dimen/dp_16"
-        android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_55"
-        android:textSize="@dimen/dp_16"
-        android:gravity="center"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="盘点服务地址"
+                android:textColor="#fff"
+                android:textSize="@dimen/dp_16"
 
-        />
+                />
+
+            <EditText
+                android:id="@+id/et_dizhi"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="#fff"
+                android:hint="请输入盘点服务地址"
+                android:textColor="#000"
+                android:textSize="@dimen/dp_16"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="绑签距离"
+                android:textColor="#fff"
+                android:textSize="@dimen/dp_16"
+
+                />
+
+            <Spinner
+                android:id="@+id/spiner_select"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="#fff"
+                android:entries="@array/exceptions"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="盘点距离"
+                android:textColor="#fff"
+                android:textSize="@dimen/dp_16"
+
+                />
+
+            <Spinner
+                android:id="@+id/spiner_selecttwo"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="#fff"
+                android:entries="@array/exceptions"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="扫描按键"
+                android:textColor="#fff"
+                android:textSize="@dimen/dp_16"
+
+                />
+
+            <EditText
+                android:id="@+id/et_anjian"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="#fff"
+                android:hint="请点击按键"
+                android:textColor="#000"
+                android:textSize="@dimen/dp_16"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_baocun"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_55"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="@drawable/shape_bg_title"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@color/color_FFFFFF"
+                android:textSize="@dimen/dp_16"
+
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>

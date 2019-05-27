@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_prompt_parent_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_20"
+    android:layout_marginRight="@dimen/dp_20"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/dialog_prompt_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_35"
+        android:textSize="@dimen/dp_18"
+        android:text="【0】 办公室001"
+        android:gravity="center"
+        android:textColor="@color/color_FF9900"
+        android:background="@drawable/bg_btn_confirm"
+        />
+
+
+    <RelativeLayout
+
+        android:layout_below="@id/dialog_prompt_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:background="@drawable/bg_room"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择该房间内包含的资产分类："
+            android:textSize="@dimen/dp_16"
+            android:id="@+id/tv_lable"
+            android:textColor="@color/color_FF9900"
+            />
+
+        <TextView
+            android:layout_below="@id/tv_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部"
+            android:id="@+id/tv_all"
+            android:textColor="@color/isp_write"
+            android:paddingTop="@dimen/dp_2"
+            android:paddingBottom="@dimen/dp_2"
+            android:paddingLeft="@dimen/dp_6"
+            android:paddingRight="@dimen/dp_6"
+            android:textSize="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:background="@color/color_FF9900"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@id/tv_all"
+            android:id="@+id/assets_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_45"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/dialog_prompt_text_commit"
+            android:textSize="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_18"
+            android:layout_marginRight="@dimen/dp_18"
+            android:textColor="@color/isp_write"
+            android:background="@drawable/bg_btn_confirm"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

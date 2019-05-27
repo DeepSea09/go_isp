@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class PromptTextDialog extends Dialog implements View.OnClickListener, DialogInterface.OnDismissListener {
 
-    private String mTitle, mContent, mConfirm, mCancel;
+    private String mTitle, mContent, mConfirm, mCancel,aName;
     private Integer mFlagImage;
     private IOnActionListener mActionListener;
     private boolean mCancelable = false;
@@ -98,11 +99,17 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
         setContentView(mLayoutID);
 
         showContent();
-
+        Log.e("onCreate: ----------", mLayoutID+"");
         TextView lConfirmView = findViewById(R.id.dialog_prompt_text_confirm);
         if (mConfirm != null) lConfirmView.setText(mConfirm);// mConfirm可以有默认文字
         lConfirmView.setOnClickListener(this);
         View lCancelView = findViewById(R.id.dialog_prompt_text_cancel);
+        try {
+            View dialog_prompt_text_fanhui = findViewById(R.id.dialog_prompt_text_fanhui);
+            dialog_prompt_text_fanhui.setOnClickListener(this);
+        }catch (Exception e){
+
+        }
 
         boolean lShowlRecycleView = rfid_list != null;
         if (lShowlRecycleView) {
@@ -120,7 +127,12 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
                 TextView textView = findViewById(R.id.tv_rfid);
                 TextView tv_rfid_address = findViewById(R.id.tv_rfid_address);
                 textView.setText(rfid_list.get(0));
-                tv_rfid_address.setText(mContent.substring(mContent.indexOf("】")+1,mContent.length()));
+                if(aName!=null&&!aName.equals("")){
+                    tv_rfid_address.setText(aName);
+                }else{
+                    tv_rfid_address.setText(mContent.substring(mContent.indexOf("】")+1,mContent.length()));
+                }
+
             }
         }
 
@@ -162,6 +174,11 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
 
 
     public void fastShow(String aContent, IOnActionListener aActionListener) {
+        fastShow(null, aContent, null, aActionListener);
+    }
+
+    public void fastShow(String aContent,String aName, IOnActionListener aActionListener,int id) {
+        this.aName = aName;
         fastShow(null, aContent, null, aActionListener);
     }
 
@@ -213,6 +230,8 @@ public class PromptTextDialog extends Dialog implements View.OnClickListener, Di
         } else if (id == R.id.dialog_prompt_parent_ll) {
             dismiss();
 
+        }else if(id ==R.id.dialog_prompt_text_fanhui){
+            dismiss();
         }
     }
 

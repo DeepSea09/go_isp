@@ -4,8 +4,6 @@
     android:id="@+id/dialog_prompt_parent_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/dp_20"
-    android:layout_marginRight="@dimen/dp_20"
     android:gravity="center">
 
 
@@ -25,7 +23,7 @@
 
         android:layout_below="@id/dialog_prompt_content_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
         android:background="@drawable/bg_room"
         android:layout_centerVertical="true"
@@ -68,54 +66,75 @@
             android:textColor="@color/color_FF9900"
             android:text=" @"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/dp_18"
-            android:layout_gravity="center"
-            android:id="@+id/tv_rfid_address"
-            android:textColor="@color/color_FF9900"
-            android:text="办公室001"
-            />
+
+            <TextView
+                android:id="@+id/tv_rfid_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="办公室001"
+                android:textColor="@color/color_FF9900"
+                android:textSize="@dimen/dp_18" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rfid_list"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/dp_16"
-            android:layout_marginLeft="@dimen/dp_16">
+            android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rfid_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RFID不唯一，请重新扫描标签"
-            android:gravity="center"
-            android:id="@+id/dialog_prompt_text_confirm"
-            android:textSize="@dimen/dp_14"
-            android:layout_marginTop="@dimen/dp_6"
-            android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginRight="@dimen/dp_12"
-            android:layout_marginBottom="@dimen/dp_6"
-            android:textColor="@color/color_FF9900"
-            android:background="@drawable/bg_btn_cancel"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="开始绑定"
-            android:gravity="center"
-            android:id="@+id/dialog_prompt_text_cancel"
-            android:textSize="@dimen/dp_14"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/dp_6"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginRight="@dimen/dp_16"
-            android:layout_marginBottom="@dimen/dp_6"
-            android:textColor="@color/color_FF9900"
-            android:background="@drawable/bg_btn_cancel"/>
-        
+            </android.support.v7.widget.RecyclerView>
+
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RFID不唯一，请重新扫描标签"
+                android:gravity="center"
+                android:id="@+id/dialog_prompt_text_confirm"
+                android:textSize="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginBottom="50dp"
+                android:textColor="@color/color_FF9900"
+                android:background="@drawable/bg_btn_cancel"/>
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="开始绑定"
+                android:gravity="center"
+                android:id="@+id/dialog_prompt_text_cancel"
+                android:textSize="@dimen/dp_14"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_marginBottom="50dp"
+                android:textColor="@color/color_FF9900"
+                android:background="@drawable/bg_btn_cancel"/>
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:gravity="center"
+                android:id="@+id/dialog_prompt_text_fanhui"
+                android:textSize="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:textColor="@color/color_FF9900"
+                android:background="@drawable/bg_btn_cancel"/>
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 

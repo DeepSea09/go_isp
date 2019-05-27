@@ -3,6 +3,7 @@ package com.wangbin.go_isp.utils;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wangbin.go_isp.R;
 import com.wangbin.go_isp.bean.MessageEvent;
 import com.wangbin.go_isp.bean.RoomLikebean;
+import com.wangbin.go_isp.ui.activity.SelectRoomActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -69,7 +72,7 @@ public class CustomDialog extends Dialog {
             TextView tv_loadingmsg = findViewById(R.id.tv_loadingmsg);
             TextView tv_loading_content = findViewById(R.id.tv_loading_content);
             TextView dialog_prompt_content_tv = findViewById(R.id.dialog_prompt_content_tv);
-            dialog_prompt_content_tv.setText("【"+roomLikebean.getRoom_code()+"】"+roomLikebean.getRoom_name());
+            dialog_prompt_content_tv.setText("【"+roomLikebean.getAssets_num()+"】"+roomLikebean.getRoom_name());
             tv_loading_content.setText(type == 0 ? "现在请扫描" : "现在请扫描代表该资产的");
             tv_loadingmsg.setText(type == 0 ? "【房间RFID标签】" : "【资产RFID标签】");
             getWindow().getAttributes().gravity = Gravity.CENTER;
@@ -84,22 +87,38 @@ public class CustomDialog extends Dialog {
     }
 
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-
-        Log.e("dispatchKeyEvent: ",event.toString() );
-        return super.dispatchKeyEvent(event);
-    }
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//
+//        Log.e("dispatchKeyEvent: ",event.toString() );
+//        return super.dispatchKeyEvent(event);
+//    }
 
     @Override
     public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
-        if (keyCode == 520){
-            EventBus.getDefault().post(new MessageEvent(TextUtils.isEmpty(msg) ? 1000 : 1001,null,null,0));
+        SharedPreferences userSettings =getContext().getSharedPreferences("setting", 0);
+        String strkeycode = userSettings.getString("keycode","1");
+        String[] strkeycodes =  strkeycode.split(";");
+
+        boolean cando = false;
+        for (int i = 0;i<strkeycodes.length;i++){
+            if(strkeycodes[i].equals(keyCode+"")){
+                cando=true;
+            }
+        }
+        Log.e("onKeyDown: keyCode", keyCode+"");
+        Log.e("onKeyDown: cando", cando+"");
+        if(cando){
+        EventBus.getDefault().post(new MessageEvent(TextUtils.isEmpty(msg) ? 1000 : 1001,null,null,0));
             return false;
-        }else {
+        }
+//        if (keyCode == 520){
+//            EventBus.getDefault().post(new MessageEvent(TextUtils.isEmpty(msg) ? 1000 : 1001,null,null,0));
+//            return false;
+//        }else {
 
             return super.onKeyDown(keyCode, event);
-        }
+//        }
 
     }
 

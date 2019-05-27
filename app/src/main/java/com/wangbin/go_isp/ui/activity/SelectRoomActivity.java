@@ -214,24 +214,27 @@ public class SelectRoomActivity extends BaseActivity implements SelectRoomContra
     }
 
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-
-        Log.e(TAG, "dispatchKeyEvent: " + event.toString());
-        return super.dispatchKeyEvent(event);
-    }
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//
+//        Log.e(TAG, "dispatchKeyEvent: " + event.toString());
+//        return super.dispatchKeyEvent(event);
+//    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         SharedPreferences userSettings = getSharedPreferences("setting", 0);
-        String strkeycode = userSettings.getString("keycode","520;");
+        String strkeycode = userSettings.getString("keycode","1");
         String[] strkeycodes =  strkeycode.split(";");
+
         boolean cando = false;
         for (int i = 0;i<strkeycodes.length;i++){
-            if(strkeycodes[i]==keyCode+""){
+            if(strkeycodes[i].equals(keyCode+"")){
                 cando=true;
             }
         }
+        Log.e("onKeyDown: keyCode", keyCode+"");
+        Log.e("onKeyDown: cando", cando+"");
         if(cando){
             if (openScanningResult == 0) {
                     startScanning();
